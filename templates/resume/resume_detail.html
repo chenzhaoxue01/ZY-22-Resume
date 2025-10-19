@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="resume-card">
+    <!-- 头部信息 -->
+    <div class="resume-header">
+        {% if personal_info.photo %}
+        <img src="{{ personal_info.photo.url }}" alt="{{ personal_info.name }}" class="profile-photo">
+        {% else %}
+        <div class="profile-photo" style="background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-user" style="font-size: 3em;"></i>
+        </div>
+        {% endif %}
+        
+        <h1>{{ personal_info.name }}</h1>
+        <div class="subtitle">{{ personal_info.major }}专业 | 学号: {{ personal_info.student_id }}</div>
+        
+        <div class="contact-info">
+            {% if personal_info.email %}
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>{{ personal_info.email }}</span>
+            </div>
+            {% endif %}
+            
+            {% if personal_info.phone %}
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>{{ personal_info.phone }}</span>
+            </div>
+            {% endif %}
+            
+            {% if personal_info.address %}
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>{{ personal_info.address }}</span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- 主体内容 -->
+    <div class="resume-body">
+        <!-- 个人简介 -->
+        {% if personal_info.introduction %}
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-user"></i>
+                个人简介
+            </h2>
+            <p class="item-description">{{ personal_info.introduction }}</p>
+        </div>
+        {% endif %}
+
+        <!-- 教育背景 -->
+        {% if educations %}
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                教育背景
+            </h2>
+            {% for education in educations %}
+            <div class="education-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">{{ education.school }}</div>
+                        <div class="item-subtitle">{{ education.degree }} | {{ education.major }}</div>
+                    </div>
+                    <div class="item-date">
+                        {{ education.start_date|date:"Y年m月" }} - 
+                        {% if education.end_date %}
+                            {{ education.end_date|date:"Y年m月" }}
+                        {% else %}
+                            至今
+                        {% endif %}
+                    </div>
+                </div>
+                {% if education.description %}
+                <p class="item-description">{{ education.description }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- 技能 -->
+        {% if skills %}
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-code"></i>
+                技能专长
+            </h2>
+            <div class="skills-grid">
+                {% for skill in skills %}
+                <div class="skill-item">
+                    <div class="item-title">{{ skill.name }}</div>
+                    <div class="skill-level">
+                        <span class="item-subtitle">{{ skill.get_level_display }}</span>
+                        <div class="level-bar">
+                            <div class="level-fill level-{{ skill.level }}"></div>
+                        </div>
+                    </div>
+                    {% if skill.description %}
+                    <p class="item-description">{{ skill.description }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- 项目经验 -->
+        {% if projects %}
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-project-diagram"></i>
+                项目经验
+            </h2>
+            {% for project in projects %}
+            <div class="project-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">{{ project.name }}</div>
+                        <div class="item-subtitle">{{ project.role }} | {{ project.technologies }}</div>
+                    </div>
+                    <div class="item-date">
+                        {{ project.start_date|date:"Y年m月" }} - 
+                        {% if project.end_date %}
+                            {{ project.end_date|date:"Y年m月" }}
+                        {% else %}
+                            至今
+                        {% endif %}
+                    </div>
+                </div>
+                <p class="item-description">{{ project.description }}</p>
+                {% if project.link %}
+                <p class="item-description">
+                    <i class="fas fa-link"></i>
+                    <a href="{{ project.link }}" target="_blank">{{ project.link }}</a>
+                </p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- 工作经验 -->
+        {% if experiences %}
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-briefcase"></i>
+                工作经验
+            </h2>
+            {% for experience in experiences %}
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">{{ experience.company }}</div>
+                        <div class="item-subtitle">{{ experience.position }}</div>
+                    </div>
+                    <div class="item-date">
+                        {{ experience.start_date|date:"Y年m月" }} - 
+                        {% if experience.end_date %}
+                            {{ experience.end_date|date:"Y年m月" }}
+                        {% else %}
+                            至今
+                        {% endif %}
+                    </div>
+                </div>
+                {% if experience.description %}
+                <p class="item-description">{{ experience.description }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

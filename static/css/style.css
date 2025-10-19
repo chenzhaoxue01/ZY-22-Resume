@@ -1,0 +1,85 @@
+/* 额外的自定义样式可以放在这里 */
+.resume-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.skill-item {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+    background-color: #e8f4f8 !important;
+}
+
+.education-item,
+.project-item,
+.experience-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-item:hover,
+.project-item:hover,
+.experience-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 打印样式优化 */
+@media print {
+    .resume-card {
+        box-shadow: none !important;
+        transform: none !important;
+    }
+    
+    .skill-item,
+    .education-item,
+    .project-item,
+    .experience-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .resume-header {
+        background: #4facfe !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+}
+
+/* 加载动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* 响应式调整 */
+@media (max-width: 480px) {
+    .resume-header h1 {
+        font-size: 1.8em !important;
+    }
+    
+    .section-title {
+        font-size: 1.3em !important;
+    }
+    
+    .profile-photo {
+        width: 120px !important;
+        height: 120px !important;
+    }
+}
