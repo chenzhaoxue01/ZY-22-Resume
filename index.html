@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jangouts - 视频会议系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .project-info {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .requirements {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .next-steps {
+            background: #f0f8f0;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Jangouts - 视频会议系统</h1>
+        <p>基于 WebRTC 和 Janus Gateway 的自托管视频会议解决方案</p>
+    </div>
+
+    <div class="project-info">
+        <h2>项目概述</h2>
+        <p>Jangouts (Janus Hangouts) 是一个完全自托管的开源视频会议替代方案，界面设计灵感来自 Google Hangouts。</p>
+        <p><strong>主要功能：</strong></p>
+        <ul>
+            <li>视频会议</li>
+            <li>音频通话</li>
+            <li>屏幕共享</li>
+            <li>文字聊天</li>
+            <li>无限会议室</li>
+            <li>可配置参与者限制</li>
+        </ul>
+    </div>
+
+    <div class="requirements">
+        <h2>运行要求</h2>
+        <p><strong>必需组件：</strong></p>
+        <ol>
+            <li><strong>Node.js 和 npm</strong> - 用于构建和运行前端应用</li>
+            <li><strong>Janus Gateway</strong> - WebRTC 媒体服务器</li>
+            <li><strong>Web 服务器</strong> - 用于提供静态文件</li>
+        </ol>
+        <p><strong>当前状态：</strong>项目代码已成功克隆到本地，但需要安装Node.js才能正常运行。</p>
+    </div>
+
+    <div class="next-steps">
+        <h2>下一步操作</h2>
+        <p><strong>选项1：安装Node.js（推荐）</strong></p>
+        <ol>
+            <li>访问 <a href="https://nodejs.org/">nodejs.org</a> 下载并安装Node.js</li>
+            <li>打开命令提示符，导航到项目目录</li>
+            <li>运行 <code>npm install</code> 安装依赖</li>
+            <li>运行 <code>npm start</code> 启动开发服务器</li>
+        </ol>
+
+        <p><strong>选项2：使用Docker</strong></p>
+        <ol>
+            <li>安装Docker Desktop</li>
+            <li>构建Janus Gateway容器</li>
+            <li>配置Web服务器提供静态文件</li>
+        </ol>
+
+        <p><strong>项目文件结构：</strong></p>
+        <ul>
+            <li><code>src/</code> - React源代码</li>
+            <li><code>public/</code> - 静态资源文件</li>
+            <li><code>package.json</code> - 项目配置和依赖</li>
+            <li><code>README.md</code> - 详细文档</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <p><a href="./README.md">查看完整文档</a> | <a href="./DEVELOPMENT.md">开发指南</a></p>
+    </div>
+</body>
+</html>
